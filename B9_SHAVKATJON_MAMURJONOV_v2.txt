@@ -1,0 +1,36 @@
+2) Nazariy savollar:
+f; @Qualifier va @Scope Annotationlari nima vazifani bajaradi?
+@Qualifier - SIz bir xil tipdagi bittadan koproq bean lar ochib faqat 1 tasini wired qilmoqchi bo'lganizda @Qualifier + @Autowired ni ishlatasiz
+@Scope - injectable constructor bor class uchun foydalaniladi,Agar qamrov bo'yicha izoh mavjud bo'lmasamisol yaratadi, uni 1 ta injection uchun ishlatadi va unutib yuboradi
+----------------------------------------------------------------------------------
+g; @ModelAttribute Annotation ni 2 xil ishlatish holatini tushuntirib bering:
+1-Method darajasida: 
+@PostMapping("save")
+@ModelAttribute("user")
+Public String save(User user, Model model){
+model.addAtrribute("user", user);
+return "response";
+}
+2-Method parametr darajasida
+PostMapping("save")
+Public String save (@ModelAttribute("user") User user, Model model) {
+model.addAtribute("user", user);
+return "response";
+}
+-----------------------------------------------------------------------------------
+h;@RequestParam va @PathVariable farqi:
+@RequestParam query parametrning qiymatini olish uchun ishlatiladi,
+@PathVariable esa URI template dagi qiymatlarni olish uchun ishlatiladi 
+----------------------------------------------------------------------------
+i;Qanday Template Engine larni bilasiz?
+Apache Velocity, Apache FreeMaker, Thymeleaf, Apache tiles, Mustache Java,Groovy
+Apache Velocity ochiq kodli dasturiy ta'minotni yaratish va unga xizmat ko'rsatish vazifalarini bajaradi
+Apache FreeMaker- shablon mexanizmi,shablon va o'zgaruvchilarga asoslangan matn chiqishi uchun kutubxona
+Thymeleaf- matnni qayta ishlash va yaratishga asoslangan shablon mexanizmi
+Apache Tiles - bu web-ilovalar foydalanuvchi interfeyslarini ishlab chiqishni soddalashtirish uchun yaratilgan shablon tizimi
+Mustache java - Java uchun mustache.js (web-dasturlarni shablonlash tizimi) ni joriy qilish.
+Groovy- Ushbu shablon mexanizmi asosan XML-ga o'xshash belgilarni yaratishga qaratilgan shablon mexanizmidir (XML, XHTML, HTML5, … ), lekin undan matnga asoslangan har qanday tarkibni yaratish uchun foydalanish mumkin.
+---------------------------------------------------------------------------------------
+j:Dependence Injection va IoC nima?
+Inversion of control- IoC ramkada dastur oqimini nazorat qilish va kodimizni chaqirish imkonini beradi. 
+Dependency Injection bu IoC ni implemet qilish uchun pattern.Klassdan tashqarida dependent obyektlar yaratilishiga imkon beradi
